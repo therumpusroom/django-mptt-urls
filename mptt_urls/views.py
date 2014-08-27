@@ -58,7 +58,7 @@ def process_url(request, url, settings):
     elif view:
         view = import_by_path(view)
         if hasattr(view, 'as_view'):
-            view = view.as_view()
+            view = view.as_view(object=object)
         return view(
             request,
             mptt_urls={
